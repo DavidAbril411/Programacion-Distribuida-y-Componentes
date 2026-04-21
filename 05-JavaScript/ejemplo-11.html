@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ejemplos de JavaScript">
+    <meta name="author" content="Lic. Mariela Pastarini">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JavaScript - Ejemplo 11</title>
+
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <script type="text/javascript" src="js/ejemplo-11.js"></script>
+</head>
+<body class="container">
+	<h3>Formulario de carga de datos</h3>
+	<form id="iform" action="mailto:mpastarini@ubp.edu.ar?subject=Datos personales" method="post">
+		<div class="row">
+			<div class="col-12 text-center text-md-start"><b>Datos Personales</b></div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-6 mb-3">
+				<label for="iapellido">Apellido</label>
+				<input type="text" id="iapellido" name="apellido" class="form-control" required
+					placeholder="Ingresa tu apellido" value="" maxlength="100">
+			</div>
+			<div class="col-12 col-md-6 mb-3">
+				<label for="inombre">Nombre</label>
+				<input type="text" id="inombre" name="nombre" class="form-control" required
+					placeholder="Ingresa tu nombre" value="" maxlength="255">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-6 mb-3">
+				<label for="iemail">E-mail</label>
+				<input type="email" id="iemail" name="email" class="form-control" required
+							 placeholder="Ingresa tu e-mail" value="" maxlength="255">
+			</div>
+			<div class="col-12 col-md-3 mb-3">
+				<label for="iclave">Ingrese Clave</label>
+				<input type="password" id="iclave" name="clave" class="form-control" required
+					placeholder="Ingresa una clave" value="" minlength="6" maxlength="32">
+			</div>
+			<div class="col-12 col-md-3 mb-3">
+				<label for="iconfirmar_clave">Repetir Clave</label>
+				<input type="password" id="iconfirmar_clave" class="form-control" name="confirmar_clave" required
+					placeholder="Repite la clave" value="" maxlength="32">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-2 mb-3">
+				<label for="igeneroF">G&eacute;nero</label>
+				<div class="form-check">
+					<input type="radio" class="form-check-input" name="genero" value="F" id="igeneroF" checked="checked">
+					<label class="form-check-label" for="igeneroF">Femenino</label>
+				</div>
+				<div class="form-check">
+					<input type="radio" class="form-check-input" name="genero" value="M" id="igeneroM">
+					<label class="form-check-label" for="igeneroM">Masculino</label>
+				</div>
+				<div class="form-check">
+					<input type="radio" class="form-check-input" name="genero" value="NB" id="igeneroNB">
+					<label class="form-check-label" for="igeneroNB">No Binario</label>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 mb-3">
+				<label for="ifecha_nacimiento">Fecha de Nac.</label>
+				<input type="date" id="ifecha_nacimiento" name="fecha_nacimiento" class="form-control" required value="">
+			</div>
+			<div class="col-12 col-md-3 mb-3">
+				<label for="inacionalidad">Nacionalidad</label>
+				<select id="inacionalidad" name="nacionalidad" class="form-select" required>
+					<option value="">Debe seleccionar una nacionalidad</option>
+					<option value="AR" selected="selected">Argentina</option>
+					<option value="BO">Boliviana</option>
+					<option value="BR">Brasile&ntilde;a</option>
+					<option value="CH">Chilena</option>
+					<option value="PY">Paraguaya</option>
+					<option value="UY">Uruguaya</option>
+					<option value="-1">Otra</option>
+				</select>
+			</div>
+			<div class="col-12 col-md-3 d-none">
+				<label for="iotranac">Otra Nacionalidad</label>
+				<input type="text" id="iotranac" name="otra_nacionalidad" class="form-control" maxlength="255" size="40" required disabled>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 text-center text-md-start"><b>Otros Datos</b></div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-6 mb-3">
+				<label for="iequipo">Equipo Favorito</label>
+				<select id="iequipo" name="equipo" size="5" multiple class="form-select">
+					<option value="Belgrano">Belgrano</option>
+					<option value="Boca Juniors">Boca Juniors</option>
+					<option value="Independiente">Independiente</option>
+					<option value="Instituto">Instituto</option>
+					<option value="Lan&uacute;s">Lan&uacute;s</option>
+					<option value="Racing">Racing</option>
+					<option value="River">River Plate</option>
+					<option value="San Lorenzo">San Lorenzo</option>
+					<option value="Talleres">Talleres</option>
+					<option value="Velez Sarsfield">Velez Sarsfield</option>
+				</select>
+			</div>
+			<div class="col-12 col-md-6 mb-3">
+				<label>Hobbies</label>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Bailar" id="ibailar">
+					<label class="form-check-label" for="ibailar">Bailar</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Cantar" id="icantar">
+					<label class="form-check-label" for="icantar">Cantar</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Deportes" id="ideportes">
+					<label class="form-check-label" for="ideportes">Deportes</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Leer" id="ileer">
+					<label class="form-check-label" for="ileer">Leer</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Ver televisión" id="ivertv">
+					<label class="form-check-label" for="ivertv">Ver televisi&oacute;n</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 mb-3">
+				<label for="iactividades">Otras Actividades</label>
+				<textarea cols="50" rows="5" id="iactividades" name="actividades" class="form-control" maxlength="255"
+					placeholder="Mis actividades son..."></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<button type="submit" class="btn btn-success me-2">Enviar por e-mail</button>
+				<button type="reset" class="btn btn-danger me-2">Limpiar formulario</button>
+				<a href="./index.html">Volver al index principal</a>
+			</div>
+		</div>
+	</form>
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

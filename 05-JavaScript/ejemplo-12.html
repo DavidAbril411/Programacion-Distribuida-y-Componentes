@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Ejemplos de JavaScript">
+  <meta name="author" content="Lic. Mariela Pastarini">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>JavaScript - Ejemplo 12</title>
+
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+  <script type="text/javascript" src="js/ejemplo-12.js" defer></script>
+</head>
+
+<body class="container">
+  <h3>Informa tu edad</h3>
+  <form id="iform" novalidate action="mailto:mpastarini@ubp.edu.ar" method="post">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <label for="iedad">Edad:</label>
+        <input type="number" id="iedad" name="edad" required max="99">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <button type="submit" class="btn btn-success me-2">Enviar</button>
+        <button type="reset" class="btn btn-danger me-2">Limpiar formulario</button>
+        <a href="./index.html">Volver al index principal</a>
+      </div>
+    </div>
+  </form>
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
