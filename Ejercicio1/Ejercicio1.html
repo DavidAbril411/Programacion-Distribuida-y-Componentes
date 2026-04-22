@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <script type="text/javascript" src="Script.js"></script>
+    <link rel="stylesheet" href="../05-JavaScript/css/bootstrap.min.css">
+</head>
+<body class="d-flex flex-column gap-5 m-auto w-50">
+    <form action="" class="d-flex flex-column form align-items-center text-secondary gap-2" onsubmit="agregarElemento(event)">
+        <label for="element" class="fs-4">Añadir elemento</label>
+        <input type="text" id="element" name="element" class="form-control" required placeholder="Indica el texto del elemento"
+               value="">
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+    <ul id="list" class="d-flex flex-column gap-2">
+    </ul>
+</body>
+</html>
