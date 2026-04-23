@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Ejemplos de Bootstrap">
+  <meta name="author" content="Lic. Mariela Pastarini">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Bootstrap - Ejemplo 8</title>
+
+  <!-- Enlace al CSS de Bootstrap v5.3.8 -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .back {
+      width: 45px; height: 45px; z-index: 1030;
+    }    
+  </style>
+</head>
+
+<body>
+  <div class="d-flex flex-column vh-100">
+    <!--
+    Se utiliza vh-100 y my-auto en el cuerpo y el contenedor para tratar de hacer que el contenido 
+    utilice el espacio vertical disponible de manera efectiva. La idea aquí es hacer que el 
+    contenedor del carrusel se centre verticalmente dentro de un cuerpo que tiene una altura de 
+    viewport (100vh), pero la altura exacta del carrusel seguirá dependiendo del contenido interno.  
+    -->
+    <div class="container my-auto">
+      <!-- Carrusel -->
+      <div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicadores del carrusel -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#miCarrusel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#miCarrusel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#miCarrusel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <!-- Contenido del carrusel -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <iframe class="d-block w-100 vh-100" src="https://www.youtube.com/embed/6NJWbbGWItE" frameborder="0"
+              allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="carousel-item">
+            <iframe class="d-block w-100 vh-100" src="https://www.youtube.com/embed/GE7I3dX1vdE" frameborder="0"
+              allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="carousel-item">
+            <iframe class="d-block w-100 vh-100" src="https://www.youtube.com/embed/F9wCVryRrOU" frameborder="0"
+              allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Controles del carrusel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#miCarrusel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#miCarrusel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Botón Flotante -->
+  <a href="./index.html" class="back btn btn-secondary position-fixed bottom-0 end-0 rounded-circle m-4" role="button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 18 15">
+      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
+    </svg>
+  </a>
+
+  <!-- Scripts de Bootstrap v5.3.8 -->
+  <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>

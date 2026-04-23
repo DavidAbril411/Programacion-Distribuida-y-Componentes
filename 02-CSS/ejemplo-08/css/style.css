@@ -1,0 +1,69 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+}
+
+.card {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 200px; /* Altura inicial para dispositivos móviles */
+}
+
+.card-content {
+  padding: 15px;
+  background: #fafafa;
+}
+
+h2 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Media query para pantallas pequeñas (mayores a 600px pero menores que 900px) */
+@media (min-width: 600px) and (max-width: 899px) {
+  .card {
+    flex-direction: row;
+    max-width: 500px;
+  }
+
+  .card-img {
+    width: 50%; /* La imagen ocupa el 50% del ancho del contenedor */
+    height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
+  }
+
+  .card-content {
+    flex: 1;
+  }
+}
+
+/* Media query para pantallas grandes (mayores o iguales a 900px) */
+@media (min-width: 900px) {
+  .card {
+    flex-direction: column;
+    max-width: 600px;
+  }
+
+  .card-img {
+    width: 100%; /* La imagen ocupa todo el ancho en disposición vertical */
+    height: 300px; /* Altura fija para la imagen en pantallas grandes */
+  }
+
+  .card-content {
+    padding: 30px;
+  }
+}

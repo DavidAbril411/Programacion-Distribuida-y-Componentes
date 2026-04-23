@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Ejemplos de HTML">
+	<meta name="author" content="Lic. Mariela Pastarini">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>HTML - Ejemplo 10</title>
+
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container">
+	<h3>Formulario de carga de datos</h3>
+	<form action="mailto:mpastarini@ubp.edu.ar" method="post" class="col-12">
+		<div class="row">
+			<div class="col-12 text-center text-md-start"><b>Datos Personales</b></div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-6 mb-3">
+				<label for="iapellido">Apellido</label>
+				<input type="text" id="iapellido" name="apellido" class="form-control" required
+					placeholder="Ingresa tu apellido" value="" maxlength="100">
+				<input type="hidden" value="VALOR" name="oculto">
+			</div>
+			<div class="col-12 col-md-6 mb-3">
+				<label for="inombre">Nombre</label>
+				<input type="text" id="inombre" name="nombre" class="form-control" required placeholder="Ingresa tu nombre"
+					value="" maxlength="255">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-6 mb-3">
+				<label for="iemail">E-mail</label>
+				<input type="email" id="iemail" name="email" class="form-control" required placeholder="Ingresa tu e-mail"
+					value="" maxlength="255">
+			</div>
+			<div class="col-12 col-md-3 mb-3">
+				<label for="iclave">Ingrese Clave</label>
+				<input type="password" id="iclave" name="clave" class="form-control" required placeholder="Ingresa una clave"
+					value="" maxlength="32">
+			</div>
+			<div class="col-12 col-md-3 mb-3">
+				<label for="iconfirmar_clave">Repetir Clave</label>
+				<input type="password" id="iconfirmar_clave" class="form-control" name="confirmar_clave" required
+					placeholder="Repite la clave" value="" maxlength="32">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-2 mb-3">
+				<label for="iGeneroF">G&eacute;nero</label>
+				<div class="form-check">
+					<input type="radio" class="form-check-input" name="genero" value="F" id="iGeneroF" checked="checked">
+					<label class="form-check-label" for="iGeneroF">Femenino</label>
+				</div>
+				<div class="form-check">
+					<input type="radio" class="form-check-input" name="genero" value="M" id="iGeneroM">
+					<label class="form-check-label" for="iGeneroM">Masculino</label>
+				</div>
+				<div class="form-check">
+					<input type="radio" class="form-check-input" name="genero" value="NB" id="iGeneroNB">
+					<label class="form-check-label" for="iGeneroNB">No Binario</label>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 mb-3">
+				<label for="ifecha_nacimiento">Fecha de Nac.</label>
+				<input type="date" id="ifecha_nacimiento" name="fecha_nacimiento" class="form-control" value="">
+			</div>
+			<div class="col-12 col-md-6 mb-3">
+				<label for="inacionalidad">Nacionalidad</label>
+				<select id="inacionalidad" name="nacionalidad" class="form-select" required>
+					<option value="">Debe seleccionar una nacionalidad</option>
+					<option value="AR" selected="selected">Argentina</option>
+					<option value="BO">Boliviana</option>
+					<option value="BR">Brasile&ntilde;a</option>
+					<option value="CH">Chilena</option>
+					<option value="PY">Paraguaya</option>
+					<option value="UY">Uruguaya</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 text-center text-md-start"><b>Otros Datos</b></div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-6 mb-3">
+				<label for="iequipo">Equipo Favorito</label>
+				<select id="iequipo" name="equipo" size="5" multiple class="form-select">
+					<option value="BE">Belgrano</option>
+					<option value="BJ">Boca Junior</option>
+					<option value="IND">Independiente</option>
+					<option value="INS">Instituto</option>
+					<option value="L">Lan&uacute;s</option>
+					<option value="RA">Racing</option>
+					<option value="RV">River Plate</option>
+					<option value="SL">San Lorenzo</option>
+					<option value="T">Talleres</option>
+					<option value="V">Velez Sarsfield</option>
+				</select>
+			</div>
+			<div class="col-12 col-md-6 mb-3">
+				<label>Hobbies</label>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Bailar" id="ibailar">
+					<label class="form-check-label" for="ibailar">Bailar</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Cantar" id="icantar">
+					<label class="form-check-label" for="icantar">Cantar</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Deportes" id="ideportes">
+					<label class="form-check-label" for="ideportes">Deportes</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Leer" id="ileer">
+					<label class="form-check-label" for="ileer">Leer</label>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" name="hobbies" value="Ver Televisión" id="ivertv">
+					<label class="form-check-label" for="ivertv">Ver televisi&oacute;n</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 mb-3">
+				<label for="iactividades">Otras Actividades</label>
+				<textarea cols="50" rows="5" id="iactividades" name="actividades" class="form-control"
+					placeholder="Mis actividades son..."></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-6 mb-3">
+				<label for="ifoto">Foto</label>
+				<input type="file" id="ifoto" name="foto" class="form-control">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<fieldset class="form-group">
+					<legend class="col-form-label col-12 text-center text-md-start"><b>Botones</b></legend>
+					<input type="submit" name="boton1" class="btn btn-primary mb-2" value="Enviar por e-mail">
+					<button type="submit" name="boton1" class="btn btn-success mb-2">Enviar por e-mail</button>
+					<input type="image" name="boton2" src="./img/icomail.gif" class="mb-2" alt="enviar por e-mail">
+					<input type="reset" name="boton3a" class="btn btn-warning mb-2" value="Limpiar formulario">
+					<button type="reset" name="boton3b" class="btn btn-danger mb-2">Limpiar formulario</button>
+					<input type="button" name="boton4" class="btn btn-dark mb-2" value="Bot&oacute;n sin acci&oacute;n asociada">
+				</fieldset>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<a href="./index.html">Volver al index principal</a>
+			</div>
+		</div>
+	</form>
+</body>
+
+</html>

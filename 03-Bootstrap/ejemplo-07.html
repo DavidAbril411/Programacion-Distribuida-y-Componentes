@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Ejemplos de Bootstrap">
+  <meta name="author" content="Lic. Mariela Pastarini">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Bootstrap - Ejemplo 7</title>
+
+  <!-- Enlace al CSS de Bootstrap v5.3.8 -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <!-- Botón para activar el modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal">
+      Abrir Modal
+    </button>
+    <a href="./index.html" class="btn btn-outline-secondary" role="button">Volver al index principal</a>
+    
+    <!-- Estructura del Modal -->
+    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Título del Modal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            Aquí va el contenido del modal. Puede incluir texto, enlaces, imágenes, formularios, etc.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scripts de Bootstrap v5.3.8 -->
+  <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>

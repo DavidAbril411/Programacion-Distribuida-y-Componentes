@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revista Digital</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo" aria-label="Revista Digital — Inicio">Revista Digital</a>
+      <nav aria-label="Categorías principales">
+        <ul class="header-nav">
+          <li><a href="#tecnologia">Tecnología</a></li>
+          <li><a href="#ciencia">Ciencia</a></li>
+          <li><a href="#cultura">Cultura</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="magazine-layout">
+
+    <!-- NOTICIA PRINCIPAL -->
+    <article class="news-main" aria-label="Noticia destacada">
+      <img
+        src="https://picsum.photos/800/450?random=100"
+        alt="Vista satelital del planeta Tierra sobre el océano Pacífico"
+        class="news-img"
+      >
+      <div class="news-body">
+        <span class="news-tag" aria-label="Categoría: Ciencia">Ciencia</span>
+        <h1 class="news-title">Científicos confirman presencia de agua líquida bajo la superficie de Marte</h1>
+        <p class="news-excerpt">
+          Un equipo internacional confirmó mediante radar la presencia de un lago subterráneo
+          de agua salada a 1,5 km de profundidad en el polo sur marciano.
+        </p>
+        <time class="news-time" datetime="2026-04-20">20 de abril de 2026</time>
+      </div>
+    </article>
+
+    <!-- NOTICIAS SECUNDARIAS -->
+    <section class="news-secondary" aria-label="Noticias secundarias">
+      <article class="news-card">
+        <img
+          src="https://picsum.photos/400/220?random=101"
+          alt="Chip de inteligencia artificial sobre circuito electrónico"
+          class="news-img"
+        >
+        <div class="news-body">
+          <span class="news-tag">Tecnología</span>
+          <h2 class="news-title">La IA supera a expertos en diagnóstico médico temprano</h2>
+          <time class="news-time" datetime="2026-04-19">19 abr 2026</time>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <img
+          src="https://picsum.photos/400/220?random=102"
+          alt="Panel solar en desierto bajo cielo azul despejado"
+          class="news-img"
+        >
+        <div class="news-body">
+          <span class="news-tag">Energía</span>
+          <h2 class="news-title">El mayor parque solar del mundo abastece a 3 millones de hogares</h2>
+          <time class="news-time" datetime="2026-04-18">18 abr 2026</time>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <img
+          src="https://picsum.photos/400/220?random=103"
+          alt="Estudiantes trabajando en computadoras en aula universitaria"
+          class="news-img"
+        >
+        <div class="news-body">
+          <span class="news-tag">Educación</span>
+          <h2 class="news-title">Argentina lanza programa nacional de programación para secundaria</h2>
+          <time class="news-time" datetime="2026-04-17">17 abr 2026</time>
+        </div>
+      </article>
+    </section>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Más leídas y categorías">
+      <h2 class="sidebar-title">Más leídas</h2>
+      <ol class="sidebar-list">
+        <li><a href="#">Nueva especie de dinosaurio con plumas descubierta en Patagonia</a></li>
+        <li><a href="#">Impacto del dólar en la economía regional</a></li>
+        <li><a href="#">Cómo la meditación cambia la estructura del cerebro</a></li>
+        <li><a href="#">Maratón completado en menos de 2 horas por primera vez</a></li>
+        <li><a href="#">La revolución silenciosa de los autos eléctricos en Latinoamérica</a></li>
+      </ol>
+
+      <h2 class="sidebar-title">Categorías</h2>
+      <ul class="sidebar-categories">
+        <li><a href="#tecnologia" id="tecnologia">⚙️ Tecnología</a></li>
+        <li><a href="#ciencia" id="ciencia">🔬 Ciencia</a></li>
+        <li><a href="#cultura" id="cultura">🎭 Cultura</a></li>
+        <li><a href="#deportes">⚽ Deportes</a></li>
+        <li><a href="#economia">📈 Economía</a></li>
+      </ul>
+    </aside>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Revista Digital. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

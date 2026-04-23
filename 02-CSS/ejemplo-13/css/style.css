@@ -1,0 +1,27 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+p.normal {
+    font-weight: 400;
+}
+
+p.negrita {
+    font-weight: 700;
+}
+
+a.enlace {
+    font-weight: 700;
+    color: red;
+    text-decoration: underline;
+}
+
+.icono-azul { color: blue; }
+.icono-verde { color: green; }
+.icono-rojo { color: red; }
+.icono-amarillo { color: orange; }
+

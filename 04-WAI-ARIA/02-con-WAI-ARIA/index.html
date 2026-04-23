@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Ejemplos de WAI-ARIA">
+  <meta name="author" content="Lic. Mariela Pastarini">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>WAI-ARIA</title>
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" aria-hidden="true" tabindex="-1">
+        <img src="../img/logo-ubp-blanco.png" alt="Logo UBP" class="logo-ubp">
+      </a>
+      <div class="d-none">
+        Este texto est&aacute; oculta para el usuario.
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#iNavbarNav"
+              aria-controls="iNavbarNav" aria-expanded="false" aria-label="Bot&oacute;n de menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse" id="iNavbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cat&aacute;logo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Servicios</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="iNavbarDropdownMenuLink" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              Más
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="iNavbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Pr&eacute;stamos</a></li>
+              <li><a class="dropdown-item" href="#">Sanciones</a></li>
+              <li aria-hidden="true">
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Acerca de...</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex ms-auto mt-3 mt-lg-0">
+          <input class="form-control me-2" type="search" placeholder="Buscar material" aria-label="Buscador">
+          <button class="btn btn-success" type="submit" aria-label="Busca material en nuestra biblioteca">Buscar</button>
+        </form>
+      </nav>
+    </div>
+  </nav>
+
+  <nav aria-label="Ruta de navegación" class="container mt-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page"><a href="#">Inicio</a></li>
+    </ol>
+  </nav>
+</header>
+
+<main class="container-fluid flex-grow-1 d-flex align-items-start mb-5" role="main" aria-labelledby="iTitulo">
+  <div class="container">
+    <h1 id="iTitulo">Bienvenido a la Biblioteca</h1>
+    <section aria-labelledby="iFormulario" aria-live="polite">
+      <h5 id="iFormulario">Déjanos tu mensaje</h5>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label for="correo" class="form-label">Correo</label>
+          <input type="email" class="form-control" id="correo" name="correo" placeholder="Escribe tu correo" required
+                 aria-required="true">
+        </div>
+        <div class="col-12 mb-3">
+          <label for="mensaje" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Déjanos tu mensaje" required
+                    aria-required="true"></textarea>
+        </div>
+        <div class="col-12 mb-3 text-end">
+          <button class="btn btn-primary disabled" disabled>Enviar</button>
+          <!--div class="btn btn-primary disabled" role="button" aria-disabled="true">Enviar</div-->
+        </div>
+      </div>
+    </section>
+    <section aria-labelledby="iTabla" aria-live="polite">
+      <h4 id="iTabla">Otras áreas de la Universidad</h4>
+      <div role="grid" tabindex="0">
+        <div role="rowgroup">
+          <div class="row" role="row">
+            <div class="col-6 fw-bold" role="columnheader">&Aacute;rea</div>
+            <div class="col-6 fw-bold" role="columnheader">Horario</div>
+          </div>
+          <div class="row" role="row">
+            <div class="col-6" role="gridcell">Administraci&oacute;n</div>
+            <div class="col-6" role="gridcell">8:00 a 18:00</div>
+          </div>
+          <div class="row" role="row">
+            <div class="col-6" role="gridcell">Bedel&iacute;a</div>
+            <div class="col-6" role="gridcell">8:00 a 22:00</div>
+          </div>
+          <div class="row" role="row">
+            <div class="col-6" role="gridcell">Informes</div>
+            <div class="col-6" role="gridcell">8:00 a 21:00</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="mt-auto bg-dark d-flex align-items-center justify-content-center" aria-labelledby="iCierre">
+  <p id="iCierre" class="text-white">Derechos de autor &copy; 2025 <a class="text-white" href="https://www.ubp.edu.ar" target="_blank" rel="noopener" aria-label="Visita el sitio de la Universidad">Universidad Blas Pascal</a></p>
+</footer>
+
+<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

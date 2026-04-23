@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  margin: 0;
+  display: flex; /* Usa Flexbox para centrar el contenido */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  min-height: 100vh; /* Ocupa al menos todo el alto de la ventana */
+  background: #f4f4f4; /* Color de fondo del cuerpo de la página */
+}
+
+.container {
+  display: flex; /* Usa Flexbox para alinear las tarjetas */
+  flex-direction: column; /* Organiza los elementos verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.card {
+  width: 200px;
+  height: 100px;
+  display: flex; /* Usa Flexbox para centrar el texto dentro de la tarjeta */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Transiciones suaves para 
+                                                                  transformación y cambio de color */
+  cursor: pointer; /* Cambia el cursor a un puntero */
+}
+
+.card-css2 {
+  background-color: #3498db; /* Color inicial de la tarjeta CSS2 */
+}
+
+.card-css2:hover {
+  background-color: #3cb0fd; /* Color al hacer hover en la tarjeta CSS2 */
+}
+
+.card-css3 {
+  background-color: #3498db; /* Color inicial de la tarjeta CSS3 */
+  border-radius: 10px; /* Bordes redondeados para la tarjeta CSS3 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para la tarjeta CSS3 */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, 
+              border-radius 0.3s ease, transform 0.3s ease; /* Transiciones suaves para varios atributos */
+}
+
+.card-css3:hover {
+  background-color: #3cb0fd; /* Color al hacer hover en la tarjeta CSS3 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al hacer hover */
+  border-radius: 20px; /* Bordes más redondeados al hacer hover */
+  transform: scale(1.05); /* Escala ligeramente la tarjeta al hacer hover */
+}

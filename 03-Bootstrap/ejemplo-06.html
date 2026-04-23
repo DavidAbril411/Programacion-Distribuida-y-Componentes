@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Ejemplos de Bootstrap">
+  <meta name="author" content="Lic. Mariela Pastarini">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Bootstrap - Ejemplo 6</title>
+
+  <!-- Enlace al CSS de Bootstrap v5.3.8 -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2>Formulario de Contacto</h2>
+    <form action="mailto:mpastarini@ubp.edu.ar" method="post">
+      <div class="row mb-3">
+        <div class="col-12 col-md-6">
+          <label for="miInputName" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="miInputName" placeholder="Introduce tu nombre" required>
+        </div>
+        <div class="col-12 col-md-6 mt-3 mt-md-0">
+          <label for="miInputEmail" class="form-label">Correo</label>
+          <input type="email" class="form-control" id="miInputEmail" placeholder="nombre@ejemplo.com" required>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-12 col-md-4">
+          <label for="miInputSubject" class="form-label">Asunto</label>
+          <input type="text" class="form-control" id="miInputSubject" placeholder="Asunto del mensaje" required>
+        </div>
+        <div class="col-12 col-md-8 mt-3 mt-md-0">
+          <label for="miInputSelect" class="form-label">Selecciona un servicio</label>
+          <select class="form-select" id="miInputSelect" required>
+            <option selected disabled>Elige una opción</option>
+            <option value="1">Pr&eacute;stamo a domicilio</option>
+            <option value="2">B&uacute;squeda bibliogr&aacute;fica</option>
+            <option value="3">Acceso a bases de datos</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-12">
+          <label for="miInputMessage" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="miInputMessage" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-12 d-flex align-items-center">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="miCheckTerms">
+            <label class="form-check-label" for="miCheckTerms">Acepto los términos y condiciones. Ver reglamento <a href="#">clic aqu&iacute;</a>.</a></label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-12 text-left">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+          <a href="./index.html" class="btn btn-outline-secondary" role="button">Volver al index principal</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Scripts de Bootstrap v5.3.8 -->
+  <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>

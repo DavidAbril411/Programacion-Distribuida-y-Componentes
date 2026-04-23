@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* Divide el contenedor en dos columnas */
+  grid-template-rows: auto 1fr auto; /* Define las filas para el encabezado, contenido y pie de página */
+  grid-template-areas: 
+    "area-header area-header"
+    "area-sidebar area-content"
+    "area-footer area-footer"; /* Asigna áreas a los elementos con la siguiente lógica:
+      "area-header" ocupa las dos primeras celdas de la primera fila, 
+      lo que significa que el encabezado se extiende a lo largo de toda la anchura del 
+      contenedor del grid.
+      "area-sidebar" y "area-content" están en la segunda fila, ocupando la primera y segunda columna 
+      respectivamente.
+      "area-footer" ocupa ambas columnas de la tercera fila, similar al encabezado, extendiéndose 
+      a lo largo de todo el ancho del contenedor.
+    */
+  min-height: 100vh;
+}
+
+.header {
+  grid-area: area-header; /* Asigna el encabezado a su área */
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar {
+  grid-area: area-sidebar; /* Asigna la barra lateral a su área */
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.content {
+  grid-area: area-content; /* Asigna el contenido principal a su área */
+  background-color: #fff;
+  padding: 20px;
+  display: flex; /* Activa Flexbox para el contenido, permitiendo un diseño flexible de sus 
+                    elementos hijos. */
+  flex-direction: column; /* Organiza los elementos hijos del contenido en una orientación 
+                             vertical. */
+  justify-content: space-between; /* Distribuye los hijos verticalmente */                           
+}
+
+.footer {
+  grid-area: area-footer; /* Asigna el pie de página a su área */
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}

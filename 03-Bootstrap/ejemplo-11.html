@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Ejemplos de Bootstrap">
+  <meta name="author" content="Lic. Mariela Pastarini">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Bootstrap - Ejemplo 10</title>
+
+  <!-- Enlace al CSS de Bootstrap v5.3.8 -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container mt-5">
+  <h2>Ejemplo de Toast</h2>
+  <button id="btnToast" class="btn btn-primary">Mostrar Toast</button>
+
+  <!-- Contenedor del Toast -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="miToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Notificación</strong>
+        <small>Hace 1 minuto</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+      </div>
+      <div class="toast-body">
+        Este es un ejemplo de Toast.
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <a href="./index.html" class="btn btn-outline-secondary">Volver al index principal</a>
+  </div>
+</div>
+
+<!-- Scripts de Bootstrap v5.3.8 -->
+<script src="./js/bootstrap.min.js"></script>
+
+<script>
+    document.getElementById('btnToast').addEventListener('click', function() {
+        var toastEl = document.getElementById('miToast');
+        var toast = new bootstrap.Toast(toastEl);
+        toast.show();
+    });
+</script>
+
+</body>
+
+</html>

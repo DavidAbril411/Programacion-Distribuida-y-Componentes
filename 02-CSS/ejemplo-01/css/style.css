@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+}
+
+/* Selector de etiqueta: selecciona todos los elementos <p> */
+p {
+  color: navy;
+}
+
+/* Selector de clase: selecciona todos los elementos con la clase "clase" */
+.clase {
+  font-weight: bold;
+}
+
+/* Selector de ID: selecciona el elemento con el ID "id" */
+#id {
+  text-decoration: underline;
+}
+
+/* Selector de hijo directo: selecciona solo los párrafos directamente dentro de div */
+div > p {
+  font-size: 16pt;
+}
+
+/* Selector de descendiente: selecciona todos los <p> dentro de div */
+div p {
+  margin-left: 20px;
+}
+
+/* Selector de adyacente directo: elemento que está inmediatamente después de otro elemento 
+   (segundo párrafo), y ambos deben tener el mismo elemento padre. */
+p + p {
+  color: goldenrod;
+}
+
+/* Selector de atributo: selecciona los enlaces con un atributo href */
+a[href] {
+  color: green; /* !important; */
+}
+
+/* Pseudo-clase: selecciona el primer elemento <li> */
+li:first-child {
+  color: violet;
+}
+
+/* Pseudo-elemento: selecciona el primer carácter de los párrafos */
+p::first-letter {
+  font-size: 150%;
+  color: navy;
+}
+
+/* Pseudo-clase de enlace: selecciona los enlaces en su estado normal, en hover, y cuando se han 
+   visitado */
+a:link {
+  color: #1a1a1a; /* Pisa  la declaración del selector a[href] solo sería ignorado si utilizamos 
+                       la sentencia !important en la misma */
+}
+
+a:hover {
+  color: #e600e6 !important;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+/* Selector de clase de elemento de lista con ID específico */
+li#id-list-item {
+  font-style: italic;
+}
+
+/* Selector de clase: Estilo base para botones */
+.boton {
+  background-color: #008CBA; /* Color de fondo azul */
+  color: white; /* Texto blanco */
+  padding: 15px 32px; /* Espaciado interno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Hace que el botón sea un bloque en línea */
+  font-size: 16px; /* Tamaño de texto */
+  margin: 4px 2px; /* Margen alrededor de los botones */
+  cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima */
+  border: none; /* Elimina el borde */
+  border-radius: 4px; /* Esquinas redondeadas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Transición suave para el color de fondo, sombra y transformación */
+}
+
+/* Efecto de hover para botones */
+.boton:hover {
+  background-color: #005f73; /* Color más oscuro en hover */
+  color: white; /* Texto blanco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  transform: translateY(-2px); /* Mueve el botón ligeramente hacia arriba */
+}
+
+/* Pseudo-clase: selecciona los elementos deshabilitados */
+button:disabled {
+  background-color: #ccc; /* Color de fondo gris para indicar que está deshabilitado */
+  color: #555; /* Texto gris para que coincida con el fondo */
+  cursor: not-allowed; /* Cambia el cursor a una señal de prohibido */
+  box-shadow: none; /* Elimina la sombra */
+}
+
+/* Pseudo-clase de negación: selecciona los botones que no tienen la clase 'especial' */
+button:not(.especial) {
+  background-color: orange;
+}
+
+/* Selector de clase combinado: selecciona elementos con dos clases específicas */
+/* Botón especial con borde dorado */
+.boton.especial {
+  background-color: #ffd700; /* Fondo dorado */
+  color: black; /* Texto negro */
+  border: 1px solid gold; /* Borde dorado */
+}
+
+/* Efecto de hover para botón especial */
+.boton.especial:hover {
+  background-color: #ffec40; /* Fondo dorado más claro en hover */
+}

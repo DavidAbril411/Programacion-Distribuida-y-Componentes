@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.multi-column {
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3;    /* Firefox */
+  column-count: 3;         
+
+  -webkit-column-gap: 30px;
+  -moz-column-gap: 30px;
+  column-gap: 30px;
+
+  -webkit-column-rule: 1px solid #ccc;
+  -moz-column-rule: 1px solid #ccc;
+  column-rule: 1px solid #ccc;
+}
+
+.multi-column img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  page-break-inside: avoid;           /* break-inside para la versión IE11 */
+  break-inside: avoid-column;         /* Se utiliza para evitar que los elementos (como imágenes) 
+                                         se dividan entre columnas */
+}
+
+/* Diseño responsivo */
+@media screen and (max-width: 768px) {
+  .multi-column {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .multi-column {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+}

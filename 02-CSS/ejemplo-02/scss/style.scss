@@ -1,0 +1,95 @@
+@use "sass:color";
+
+// Variables
+$font-stack: Helvetica, sans-serif;
+$primary-color: #3498db; // Azul claro
+$secondary-color: #e74c3c; // Rojo claro
+$tertiary-color: #f1c40f; // Amarillo
+$background-color: #ecf0f1; // Gris claro
+
+// Mixin para botones
+@mixin button-style($bg-color: $primary-color, $text-color: white) {
+  padding: 10px 20px;
+  background-color: $bg-color;
+  color: $text-color;
+  border: 1px solid color.adjust($bg-color, $lightness: -15%); // Corrección
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    background-color: color.adjust($bg-color, $lightness: -10%); // Corrección
+    border-color: color.adjust($bg-color, $lightness: -20%); // Corrección
+    color: color.adjust($text-color, $lightness: 10%); // Corrección
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: color.adjust($bg-color, $lightness: -15%); // Corrección
+    border-color: color.adjust($bg-color, $lightness: -25%); // Corrección
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; // Asegura que el contenedor tenga al menos la altura de la ventana gráfica
+  flex-direction: column; // Organiza los elementos secundarios en una columna
+}
+
+.profile-card {
+  font-family: $font-stack;
+  color: $primary-color;
+  background-color: $background-color;
+  border: 1px solid $secondary-color;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; // Alinea al centro el contenido de .profile-card
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block; // Asegura que el img se comporte como un bloque
+    margin: 0 auto 20px; // Centra la imagen y añade espacio debajo
+  }
+
+  .name {
+    margin: 0 0 10px; // Añade espacio debajo del nombre
+  }
+
+  .description {
+    margin: 0 0 20px; // Añade espacio debajo de la descripción
+  }
+
+  button {
+    @include button-style($primary-color); // Botón primario azul
+    width: 150px; // Ancho fijo para los botones
+    margin: 0 5px 10px; // Añade separación horizontal entre botones
+
+    &.secondary {
+      @include button-style($secondary-color); // Botón secundario rojo
+    }
+
+    &.tertiary {
+      @include button-style($tertiary-color, $primary-color); // Botón terciario amarillo con texto azul
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ejemplos de HTML">
+    <meta name="author" content="Lic. Mariela Pastarini">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HTML - Ejemplo 3</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container">
+    <b><u>Hiperv&iacute;nculos Absolutos</u></b>
+    <ul>
+        <li><a href="http://www.ubp.edu.ar" target="_blank">Portal UBP</a></li>
+        <li><a href="http://miubp3.ubp.edu.ar" target="_top">miUBP3</a></li>
+        <li><a href="http://portal.office.com" target="_self">Portal Office</a></li>
+    </ul>
+    <b><u>Hiperv&iacute;nculos Locales</u></b>
+    <ul>
+        <li><a href="./dir1/index.html">Ir al index del directorio 1</a></li>
+        <li><a href="./dir2/index.html">Ir al index del directorio 2</a></li>
+    </ul>
+    <b><u>Hiperv&iacute;nculos Internos</u></b>
+    <p>Son los enlaces que apuntan a un lugar diferente dentro de la misma p&aacute;gina. Mediante estos enlaces podemos ofrecer al visitante la posibilidad de acceder r&aacute;pidamente al principio o final de la p&aacute;gina o bien a diferentes p&aacute;rrafos o secciones.</p>
+    <p>Para crear un hiperv&iacute;nculo de este tipo es necesario, aparte del enlace de origen propiamente dicho, un segundo hiperv&iacute;nculo que ser&aacute; colocado en el destino.</p>
+    <p>Por ejemplo, supongamos que queremos crear un hiperv&iacute;nculo que apunte al final de la p&aacute;gina. Lo primero ser&aacute; colocar nuestro enlace origen de la siguiente forma: <br>
+        &lt;a href=&quot;#abajo&quot;&gt;Ir abajo&lt;/a&gt; <a href="#abajo">Ir abajo</a>
+    </p>
+    <p>El contenido del enlace es el texto &quot;Ir abajo&quot; y el destino abajo, es un punto de la misma p&aacute;gina que todav&iacute;a no hemos creado. El s&iacute;mbolo # es él que especifica al navegador que el enlace apunta a una secci&oacute;n en particular. </p>
+    <p>En segundo lugar, hay que generar un hiperv&iacute;nculo en el destino. Este enlace llevar&aacute; por nombre abajo para poder distinguirlo de los otros posibles hiperv&iacute;nculos realizados dentro de la misma p&aacute;gina, por ello utilizaremos el atributo &quot;id&quot;. En este caso, la etiqueta que escribiremos ser&aacute; la siguiente: <br>
+        &lt;a id=&quot;abajo&quot;&gt;&lt;/a&gt;
+    </p>
+    <b><u>Hiperv&iacute;nculos a Correos Electr&oacute;nicos</u></b>
+    <address>
+        Contacto: <a href="mailto:mpastarini@ubp.edu.ar?subject=Mensaje de Contacto&body=Texto...">mpastarini@ubp.edu.ar</a>
+    </address>
+    <a id="abajo"></a>
+    <a href="./index.html">Volver al index principal</a>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.profile-card {
+  font-family: Helvetica, sans-serif;
+  color: #3498db;
+  background-color: #ecf0f1;
+  border: 1px solid #e74c3c;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.profile-card .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+}
+.profile-card .name {
+  margin: 0 0 10px;
+}
+.profile-card .description {
+  margin: 0 0 20px;
+}
+.profile-card button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: 1px solid rgb(29.2970711297, 110.6778242678, 165.2029288703);
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  width: 150px;
+  margin: 0 5px 10px;
+}
+.profile-card button:hover, .profile-card button:focus {
+  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+  border-color: rgb(25.4560669456, 96.1673640167, 143.5439330544);
+  color: hsl(0, 0%, 110%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+.profile-card button:active {
+  background-color: rgb(29.2970711297, 110.6778242678, 165.2029288703);
+  border-color: rgb(21.6150627615, 81.6569037657, 121.8849372385);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(1px);
+}
+.profile-card button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.profile-card button.secondary {
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: 1px solid rgb(190.9931506849, 39.1780821918, 23.5068493151);
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+.profile-card button.secondary:hover, .profile-card button.secondary:focus {
+  background-color: rgb(213.698630137, 43.8356164384, 26.301369863);
+  border-color: rgb(168.2876712329, 34.5205479452, 20.7123287671);
+  color: hsl(0, 0%, 110%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+.profile-card button.secondary:active {
+  background-color: rgb(190.9931506849, 39.1780821918, 23.5068493151);
+  border-color: rgb(145.5821917808, 29.8630136986, 17.9178082192);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(1px);
+}
+.profile-card button.secondary:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.profile-card button.tertiary {
+  padding: 10px 20px;
+  background-color: #f1c40f;
+  color: #3498db;
+  border: 1px solid rgb(169.6062992126, 137.8051181102, 9.8937007874);
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+.profile-card button.tertiary:hover, .profile-card button.tertiary:focus {
+  background-color: rgb(193.7007874016, 157.3818897638, 11.2992125984);
+  border-color: rgb(145.5118110236, 118.2283464567, 8.4881889764);
+  color: rgb(95.3179916318, 173.9790794979, 226.6820083682);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+.profile-card button.tertiary:active {
+  background-color: rgb(169.6062992126, 137.8051181102, 9.8937007874);
+  border-color: rgb(121.4173228346, 98.6515748031, 7.0826771654);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(1px);
+}
+.profile-card button.tertiary:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/*# sourceMappingURL=style.css.map */

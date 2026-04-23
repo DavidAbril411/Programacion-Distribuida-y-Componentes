@@ -1,0 +1,33 @@
+:root {
+    --color-principal: #3498db;
+    --color-fondo: #f4f4f4;
+    --color-texto: #333;
+}
+
+body {
+    background-color: var(--color-fondo);
+    font-family: Arial, sans-serif;
+    color: var(--color-texto);
+}
+
+header {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+button {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}

@@ -1,0 +1,128 @@
+body {
+  height: 2500px; /* Se aumenta la altura para que se aprecie mejor el desplazamiento */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 2px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+/*
+  STATIC:
+  Es el valor predeterminado. Los elementos se colocan según el flujo normal del documento,
+  sin afectar su posición con propiedades como top, left, right o bottom.
+*/
+.static {
+  background-color: lightblue;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+/*
+  RELATIVE:
+  El elemento se posiciona en relación con su posición original en el flujo del documento.
+  Se pueden utilizar propiedades como top, left, right o bottom para moverlo desde su ubicación inicial.
+*/
+.relative {
+  background-color: lightgreen;
+  position: relative;
+  top: 20px; /* Se mueve 20px hacia abajo desde su posición original */
+  left: 20px; /* Se mueve 20px a la derecha desde su posición original */
+  width: 200px;
+  height: 200px;
+  margin-bottom: 40px;
+}
+
+/*
+  ABSOLUTE dentro de RELATIVE:
+  Un elemento con position: absolute se posiciona en relación con el ancestro posicionado más cercano
+  (cualquier elemento padre que tenga position: relative, absolute o fixed).
+  Si no hay un ancestro posicionado, se coloca en relación con <html>.
+*/
+.absolute-dentro-de-relative {
+  background-color: lightseagreen;
+  position: absolute;
+  top: 50px; /* Se posiciona 50px desde la parte superior del .relative */
+  left: 50px; /* Se posiciona 50px desde la izquierda del .relative */
+  width: 100px;
+  height: 100px;
+}
+
+/*
+  ABSOLUTE:
+  Se posiciona en relación con el ancestro posicionado más cercano.
+  Si no tiene un ancestro posicionado, se ubicará respecto al <html>.
+  No ocupa espacio en el flujo normal del documento.
+*/
+.absolute {
+  background-color: lightpink;
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  width: 150px;
+  height: 150px;
+}
+
+/*
+  FIXED:
+  Se posiciona en relación con la ventana del navegador (viewport),
+  por lo que permanece fijo en su ubicación incluso cuando se hace scroll en la página.
+*/
+.fixed {
+  background-color: lightcoral;
+  position: fixed;
+  top: 20px; /* Se fija 20px desde la parte superior de la ventana */
+  right: 20px; /* Se fija 20px desde el lado derecho de la ventana */
+  width: 150px;
+  height: 120px;
+  display: flex;
+  flex-direction: column; /* Organiza los elementos en columna */
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.fixed-link {
+  font-size: 12pt;
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.fixed-link:hover {
+  background-color: darkgray;
+}
+
+/*
+  STICKY:
+  Es una combinación de relative y fixed. Inicialmente se comporta como relative,
+  pero cuando el usuario hace scroll y alcanza la posición definida en 'top',
+  se comporta como fixed.
+*/
+.sticky {
+  background-color: lightyellow;
+  position: sticky;
+  top: 50px; /* Se quedará fijo cuando el scroll alcance los 50px desde la parte superior */
+  width: 200px;
+  height: 200px;
+  margin-top: 100px;
+  border: 2px solid black;
+}

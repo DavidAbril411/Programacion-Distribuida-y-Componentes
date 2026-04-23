@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+}
+
+/* Contenedor para centrar el elemento */
+.container-2d {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* Elemento que aplicaremos transformaciones */
+.element-2d {
+  width: 100px;
+  height: 100px;
+  background-color: #3498db;
+  transition: transform 0.5s ease-in-out;  /*Ease-in-out: Este valor hace que la transición 
+                                             comience lentamente, se acelere en la mitad del
+                                             período y luego vuelva a desacelerar hacia el final. */
+}
+
+.container-2d:hover .element-2d {
+  transform: rotate(45deg) scale(1.5);
+}
+
+/* Contenedor para aplicar la perspectiva */
+.container-3d {
+  perspective: 500px; /* Define cuán "profundo" luce el 3D */
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Elemento al que aplicaremos transformaciones 3D */
+.element-3d {
+  width: 100px;
+  height: 100px;
+  background-color: #e74c3c;
+  transition: transform 1s ease-in-out;
+  transform: rotateY(0deg); /* Inicia sin rotación en el eje Y */
+}
+
+.container-3d:hover .element-3d {
+  transform: rotateY(180deg); /* Rota el elemento 180 grados en el eje Y */
+}

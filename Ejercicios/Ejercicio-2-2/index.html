@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temporizador</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    h1 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    #timer {
+      font-size: 6rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -2px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+    }
+
+    button {
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+
+    button:disabled       { opacity: 0.35; cursor: not-allowed; }
+    button:not(:disabled):hover  { opacity: 0.85; }
+    button:not(:disabled):active { transform: scale(0.97); }
+    button:focus-visible  { outline: 2px solid #60a5fa; outline-offset: 2px; }
+
+    #btn-start { background: #22c55e; color: #fff; }
+    #btn-stop  { background: #ef4444; color: #fff; }
+
+    #status {
+      font-size: 0.85rem;
+      color: #64748b;
+      min-height: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Temporizador</h1>
+  <output id="timer" role="timer" aria-live="polite" aria-atomic="true">0</output>
+  <p id="status" aria-live="polite"></p>
+
+  <div class="controls" role="group" aria-label="Controles del temporizador">
+    <button id="btn-start" type="button">Iniciar</button>
+    <button id="btn-stop"  type="button" disabled>Detener</button>
+  </div>
+
+  <script>
+    const timerEl  = document.getElementById('timer');
+    const statusEl = document.getElementById('status');
+    const btnStart = document.getElementById('btn-start');
+    const btnStop  = document.getElementById('btn-stop');
+
+    let intervalId = null;
+    let seconds    = 0;
+
+    btnStart.addEventListener('click', () => {
+      if (intervalId) return;
+      intervalId = setInterval(() => {
+        seconds++;
+        timerEl.textContent = seconds;
+      }, 1000);
+      btnStart.disabled = true;
+      btnStop.disabled  = false;
+      statusEl.textContent = 'Ejecutando…';
+    });
+
+    btnStop.addEventListener('click', () => {
+      clearInterval(intervalId);
+      intervalId = null;
+      btnStart.disabled = false;
+      btnStop.disabled  = true;
+      statusEl.textContent = `Detenido en ${seconds}s`;
+    });
+  </script>
+
+</body>
+</html>

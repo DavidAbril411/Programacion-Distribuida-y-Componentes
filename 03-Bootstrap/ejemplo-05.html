@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es" class="h-100">
+<!--
+La clase h-100 se aplica a los elementos <html> y <body> para asegurar que tengan una altura 
+del 100% del viewport.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Ejemplos de Bootstrap">
+  <meta name="author" content="Lic. Mariela Pastarini">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Bootstrap - Ejemplo 5</title>
+
+  <!-- Enlace al CSS de Bootstrap v5.3.8 -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+  <!--
+  La clase d-flex y flex-column se añaden al <body> para establecer un layout de flexbox 
+  en dirección de columna. Esto es crucial para permitir que el contenido principal 
+  (.container-fluid) se expanda correctamente.    
+  -->
+  <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Biblio UBP</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#miNavbarNav"
+        aria-controls="miNavbarNav" aria-expanded="false" aria-label="Bot&oacute;n palanca">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="miNavbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cat&aacute;logo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Servicios</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="miNavbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Más
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="miNavbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Pr&eacute;stamos</a></li>
+              <li><a class="dropdown-item" href="#">Sanciones</a></li>
+              <li><a class="dropdown-item" href="#">Acerca de...</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="./index.html">Volver al index principal</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex ms-auto mt-3 mt-lg-0">
+          <!--
+          me-2: aplica un margen hacia el "final" (derecha) del elemento de tamaño 2 en la escala de 
+          espaciado de Bootstrap. Es útil para añadir un poco de espacio entre elementos alineados 
+          horizontalmente.
+          ms-auto: aplica un margen hacia el "inicio" (izquierda) del elemento pero con valor auto,
+          lo que significa que empujará el elemento tanto como sea posible hacia el final (derecha) 
+          de su contenedor.
+          -->
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Rutas de navegación (Breadcrumbs) -->
+  <nav aria-label="breadcrumb" class="container mt-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cat&aacute;logo</li>
+    </ol>
+  </nav>
+
+  <!-- Contenido principal -->
+  <!--
+  La clase flex-grow-1 se utiliza en el contenedor del contenido principal para hacer que ocupe 
+  todo el espacio disponible en el eje vertical. Además, d-flex y align-items-start se añaden 
+  para mostrar su contenido verticalmente arriba.
+  -->  
+  <div class="container-fluid flex-grow-1 d-flex align-items-start">
+    <div class="container">
+      <h2>Bienvenido a la Biblioteca</h2>
+      <p>Explora nuestra colecci&oacute;n de recursos y materiales.</p>
+    </div>
+  </div>
+
+  <!-- Footer con Paginación -->
+  <footer class="mt-auto bg-light">
+    <nav aria-label="Paginaci&oacute;n" class="container py-4">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+
+  <!-- Scripts de Bootstrap v5.3.8 -->
+  <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>

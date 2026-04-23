@@ -1,0 +1,49 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ejemplos de HTML">
+    <meta name="author" content="Lic. Mariela Pastarini">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HTML - Ejemplo 9</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style>
+         section {
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ccc;
+        }
+        progress, meter {
+            width: 200px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body class="container">
+    <section>
+        <h5>Progreso de una tarea</h5>
+        <label for="prog1">Descarga de archivo:</label>
+        <progress id="prog1" value="70" max="100" aria-label="Descarga completada al 70%">70%</progress>
+    </section>
+    <section>
+        <h5>Valor medido en un rango definido</h5>
+        <label for="meter1">Nivel de batería:</label>
+        <meter id="meter1" value="60" min="0" max="100" low="30" high="100" optimum="80" aria-label="Batería al 60%">60%</meter>
+    </section>
+    <section>
+        <h5>Uso de <code>&lt;output&gt;</code> para valores calculados</h5>
+        <p>El siguiente formulario realiza un cálculo simple. Al cambiar los valores de A o B, se actualiza el resultado automáticamente.</p>
+        <form oninput="result.value = parseInt(num1.value) * parseInt(num2.value)">
+            <label for="num1">Valor 1: </label>
+            <input type="number" id="num1" name="num1" value="5">
+            <label for="num2">Valor 2: </label>
+            <input type="number" id="num2" name="num2" value="10">
+            <div>
+                <label for="result">Resultado (Valor 1 × Valor 2): </label>
+                <output id="result">50</output>
+            </div>
+        </form>
+    </section>
+    <a href="./index.html">Volver al index principal</a>
+</body>
+</html>

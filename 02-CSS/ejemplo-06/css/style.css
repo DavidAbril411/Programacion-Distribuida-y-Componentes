@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+}
+
+/* Contenedor para centrar el corazón */
+.heart-container {
+  display: flex; /* Utiliza Flexbox, un método de diseño para colocar elementos en una página. */
+  flex-direction: column; /* Organiza los elementos verticalmente */
+  justify-content: center; /* Centra horizontalmente el contenido dentro del contenedor. */
+  align-items: center; /* Centra verticalmente el contenido dentro del contenedor. */
+  min-height: 100vh; /* Establece la altura mínima del contenedor al 100% del alto de la ventana 
+                        gráfica (viewport height). */
+}
+
+/* Estilo base del corazón */
+.heart {
+  position: relative; /* Establece la posición relativa, que se usa como referencia para 
+                         posicionar los pseudo-elementos `::before` y `::after`. */
+  width: 200px; /* Ancho del corazón. */
+  height: 190px; /* Altura del corazón. */
+  margin: 0 auto; /* Centra el corazón horizontalmente dentro de su contenedor. */
+  background-color: transparent; /* Asegura que el contenedor `.heart` no tenga color de fondo. */
+}
+
+/* Configuraciones comunes para los pseudo-elementos que forman el corazón */
+.heart::before,
+.heart::after {
+  content: ""; /* Necesario para que los pseudo-elementos se muestren. */
+  position: absolute; /* Posiciona los pseudo-elementos absolutamente con respecto a su 
+                         padre `.heart`. */
+  top: 0; /* Alinea la parte superior de los pseudo-elementos con la parte 
+             superior del contenedor `.heart`. */
+  width: 100px; /* Ancho de cada pseudo-elemento. */
+  height: 160px; /* Altura de cada pseudo-elemento. */
+  border-radius: 50px 50px 0 0; /* Redondea las esquinas superiores para formar la curva 
+                                   superior del corazón. */
+  animation: pulse 4s infinite; /* Aplica la animación `pulse`, que se repite infinitamente. */
+}
+
+/* Forma la mitad izquierda del corazón */
+.heart::before {
+  left: 100px; /* Posiciona el pseudo-elemento `::before` hacia la derecha dentro del 
+                  contenedor `.heart`. */
+  transform: rotate(-45deg); /* Rota el pseudo-elemento para formar la mitad izquierda del corazón. */
+  transform-origin: 0 100%; /* Cambia el punto de origen de la transformación. */
+}
+
+/* Forma la mitad derecha del corazón */
+.heart::after {
+  left: 0; /* Alinea el pseudo-elemento `::after` con el lado izquierdo del contenedor `.heart`. */
+  transform: rotate(45deg); /* Rota el pseudo-elemento para formar la mitad derecha del corazón. */
+  transform-origin: 100% 100%; /* Cambia el punto de origen de la transformación. */
+}
+
+/* Define la animación que cambia el color y la escala del corazón */
+@keyframes pulse {
+  0%, 100% {
+    background-color: #87cefa; /* El corazón comienza y termina siendo celeste. */
+  }
+  25%, 75% {
+    background-color: #0000ff; /* Cambia a azul en los puntos intermedios. */
+  }
+  50% {
+    background-color: #ffff83; /* Cambia a amarillo en la mitad de la animación. */
+  }
+}

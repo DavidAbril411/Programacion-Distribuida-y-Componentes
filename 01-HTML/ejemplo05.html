@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ejemplos de HTML">
+    <meta name="author" content="Lic. Mariela Pastarini">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HTML - Ejemplo 5</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container">
+    <div class="row">
+        <div class="col-12">
+            <b>Im&aacute;genes</b>
+            <div class="d-flex flex-column flex-lg-row justify-content-lg-between mt-5">
+                <figure>
+                    <img src="https://www.ubp.edu.ar/wp-content/uploads/2021/06/2-1.png" width="350" height="158" alt="Campus" />
+                    <figcaption>Figura 1: Esta es una imagen del Campus UBP.</figcaption>
+                </figure>
+                <figure>
+                    <img src="./img/paisaje.jpg" alt="Un paisaje" width="350" height="262" />
+                    <figcaption>Figura 2: Esta es una imagen de la laguna del &quot;Cerro La Corona&quot;.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <b>Objetos</b>
+            <div class="d-flex flex-column flex-lg-row justify-content-lg-between mt-5">
+                <embed width="420" height="315" src="https://www.youtube.com/embed/P7tQuKLAcaM?si=MKT1mU7DNQvt23Rd" type="video/mp4">
+                <object width="420" height="315" data="https://www.youtube.com/embed/opMmEl_6ic4?si=Mx3d3p_WJalhGCeY" type="video/mp4"></object>
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/0-3ri-805d0?si=EhNtEYwaUmtLO1FO" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <p>Nota: Desactivar bloqueadores de anuncios</p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <b>Videos</b>
+            <div class="d-flex flex-row">
+                <video width="420" height="315" controls>
+                    <source src="./files/video.mp4" type="video/mp4">
+                    Su navegador no soporta el tag video.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <b>Audios</b>
+            <div class="d-flex flex-row">
+                <audio controls controlslist="nodownload">
+                    <source src="./files/audio.mp3" type="audio/mp3">
+                    Su navegador no soporta el tag video.
+                </audio>
+            </div>
+        </div>
+    </div>
+    <br>
+    <a href="./index.html">Volver al index principal</a>
+</body>
+
+</html>

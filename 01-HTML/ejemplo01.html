@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ejemplos de HTML">
+    <meta name="author" content="Lic. Mariela Pastarini">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HTML - Ejemplo 1</title>
+
+    <style>
+        html,
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 1rem;
+        }
+        .text-right {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Comentario -->
+    <p><b>Texto en negrita</b></p>
+    <p><i>Texto en cursiva</i></p>
+    <p>
+        <u>
+            <i>
+                <b>Texto en negrita</b> subrayado
+            </i>
+        </u>
+    </p>
+    <p><mark>Texto resaltado</mark></p>
+    <p><small>Texto en tama&ntilde;o pequeño</small></p>
+    <p><del>Texto tachado</del></p>
+    <p><ins>Texto insertado</ins></p>
+    <p><strong>Texto con énfasis fuerte</strong></p>
+    <p><em>Texto con énfasis</em></p>
+    <p><code>Código fuente en línea</code></p>
+    <p>Escribir en <abbr title="HyperText Markup Language">HTML</abbr> es divertido.</p>
+    <p>Este ejemplo fue actualizado el <time datetime="2025-03-12">12 de marzo de 2025</time>.</p>
+    <pre>
+          Texto preformateado
+
+          con &iexcl;saltos de línea!
+    </pre>
+    <p>Mi libro favorito es <cite>El Principito</cite>.</p>
+    <blockquote>Cita en bloque de otro texto.</blockquote>
+    <p>X<sup>2</sup> = 2</p>
+    <p>log<sub>10</sub> (X)</p>
+    <p class="text-right">P&aacute;rrafo alineado a la derecha.</p>
+    <div class="text-right">
+        <p>Texto alineado <span style="color:#0f0;">a la</span> derecha.</p>
+    </div>
+
+    <h1>Encabezado nivel 1</h1>
+    <h2>Encabezado nivel 2</h2>
+    <h3>Encabezado nivel 3</h3>
+    <h4>Encabezado nivel 4</h4>
+    <h5>Encabezado nivel 5</h5>
+    <h6>Encabezado nivel 6</h6>
+    <br>
+    <b><u>Listas ordenadas</u></b>
+    <br>
+    <ol type="A">
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>
+            Elemento 3
+            <ol>
+                <li>Elemento 3.1</li>
+                <li>Elemento 3.2</li>
+                <li>Elemento 3.3</li>
+            </ol>
+        </li>
+        <li>Elemento 4</li>
+        <li>Elemento 5</li>
+        <li>Elemento 6</li>
+        <li>
+            Elemento 7
+            <ol type="i" start="4">
+                <li>Elemento 7.1</li>
+                <li>Elemento 7.2</li>
+                <li>Elemento 7.3</li>
+            </ol>
+        </li>
+    </ol>
+    <br>
+    <b><u>Listas desordenadas</u></b>
+    <br>
+    <ul>
+        <li>Elemento 1</li>
+        <li>
+            Elemento 2
+            <ul type="circle">
+                <li>Elemento 2.1</li>
+                <li type="disc">Elemento 2.2</li>
+            </ul>
+        </li>
+        <li>
+            Elemento 3
+            <ul type="square">
+                <li>Elemento 3.1</li>
+                <li>Elemento 3.2</li>
+                <li type="circle">Elemento 3.3</li>
+            </ul>
+        </li>
+    </ul>
+    <br>
+    <b><u>Listas de definici&oacute;n de t&eacute;rminos</u></b>
+    <br>
+    <dl>
+        <dt>T&eacute;rmino 1</dt>
+        <dt>T&eacute;rmino 2</dt>
+            <dd>Definici&oacute;n 2.1</dd>
+            <dd>Definici&oacute;n 2.2</dd>
+        <dt>T&eacute;rmino&nbsp;&nbsp;&nbsp;&nbsp;3</dt>
+            <dd>
+                <dl>
+                    <dt>T&eacute;rmino 4</dt>
+                        <dd>Definici&oacute;n 4.1</dd>
+                </dl>
+            </dd>
+    </dl>
+    <br>
+    <a href="./index.html">Volver al index principal</a>
+</body>
+
+</html>

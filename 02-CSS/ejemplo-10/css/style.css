@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+  display: flex; /* Establece el modelo de caja flexible para el cuerpo del documento. */
+  flex-direction: column; /* Organiza los elementos hijos del body en una orientación vertical. */
+  min-height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana del navegador. */
+}
+
+.container {
+  display: flex; /* Activa Flexbox para el contenedor, permitiendo un diseño flexible de 
+                    sus elementos hijos. */
+  flex: 1; /* Hace que el contenedor se expanda para ocupar el espacio disponible, empujando 
+              el footer hacia abajo. */
+}
+
+.sidebar {
+  flex: 1; /* Asigna a la barra lateral una proporción del espacio disponible dentro de su 
+              contenedor. */
+  background-color: #f4f4f4; /* Establece el color de fondo de la barra lateral. */
+  padding: 20px; /* Añade relleno dentro de la barra lateral para separar el contenido de los 
+                    bordes. */
+}
+
+.content {
+  flex: 3; /* Asigna al contenido principal una proporción del espacio, tres veces mayor 
+              que la barra lateral. */
+  display: flex; /* Activa Flexbox para el contenido, permitiendo un diseño flexible de 
+                    sus elementos hijos. */
+  flex-direction: column; /* Organiza los elementos hijos del contenido en una orientación vertical. */
+  justify-content: space-between; /* Distribuye los hijos verticalmente */
+  background-color: #fff; /* Establece el color de fondo del contenido principal. */
+  padding: 20px; /* Añade relleno dentro del contenido principal para separar el contenido 
+                    de los bordes. */
+}
+
+/* Estilos para el contenedor de las secciones */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos adicionales para el hipervínculo en content */
+.content-link {
+  margin-top: 20px; /* Añade espacio por encima del enlace */
+  text-align: center; /* Centra el enlace */
+  display: block; /* Hace que el enlace ocupe su propia línea */
+  color: #3498db; /* Color del enlace */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  font-weight: bold; /* Hace el texto del enlace en negrita */
+}
+
+.content-link:hover {
+  text-decoration: underline; /* Añade subrayado al enlace al pasar el ratón */
+}
+
+.footer {
+  background-color: #333; /* Establece el color de fondo del pie de página. */
+  color: #fff; /* Establece el color del texto dentro del pie de página. */
+  text-align: center; /* Centra el texto dentro del pie de página. */
+  padding: 10px 0; /* Añade relleno verticalmente dentro del pie de página. */
+}

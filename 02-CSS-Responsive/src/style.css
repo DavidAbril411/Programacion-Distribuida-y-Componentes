@@ -1,0 +1,317 @@
+/*
+
+[0] ESTILOS BASICOS
+-----------------------------
+[1] CONTENEDOR PRINCIPAL
+-----------------------------
+[2] HEADER
+-----------------------------
+[3] MENU
+-----------------------------
+[4] SLIDER
+-----------------------------
+[5] CALL TO ACTION
+-----------------------------
+[6] ENTRADAS
+-----------------------------
+[7] FOOTER
+
+*/
+
+/* [0] ESTILOS BASICOS ***************************************************************************************** */
+html{
+	font-size: 14px;
+}
+
+body {
+	padding:0;
+	margin:0;
+	background:url(images/backSite.jpg);
+	/* evita el scroll inferior en eje x */
+	overflow-x:hidden;
+}
+
+*{
+	margin:0;
+	padding:0;
+	/* Evita sumar anchos y padding */
+	box-sizing: border-box;
+}
+
+img{
+	/* Ancho al 100% del contenedor */
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+ol, ul {
+	list-style:none;	
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;	
+}
+
+caption, th {
+	text-align:left;
+}
+
+p{
+	color:#FFF;
+	text-decoration:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:1rem;	
+}
+
+
+
+/*[1] CONTENEDORES ***************************************************************************************** */
+.content{
+	/* ancho con límites */
+	width: 100%;
+	max-width: 1000px;
+	min-width: 360px;
+	margin:auto;
+	height:auto;
+	position: relative;
+}
+
+#wrapSite{
+	background:rgba(0,0,0,0.3);
+	box-shadow: 0 0 10px #000;
+}
+
+/*[2] HEADER ***************************************************************************************** */
+header{
+	padding:15px 0;
+}
+#wrapLogo{
+	width: 200px;
+	margin:auto;
+}
+
+/*[3] MENU ***************************************************************************************** */
+#icoMenu{
+	width: 30px;
+	height: auto;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	/*oculto el elemento*/
+	display: none;
+
+}
+#btmenu{
+	position: absolute;
+	left: -500px;
+	top: -500px;
+}
+
+.menu{
+	margin:10px 0 5px 0;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+}
+.btPrincipal{
+	font-family: 'Josefin Sans', 'sans-serif';
+	font-size:1.6rem;
+	font-weight:300;
+	color:#FFF;
+	padding:5px 15px;
+	text-decoration:none;
+	border-radius:5px 5px 0 0;
+	transition:all linear 0.5s;
+}
+.btPrincipal:hover{
+	background:#0CF;
+}
+
+
+#btmenu[type="checkbox"]:checked ~ .menu{
+	display: block;
+}
+
+/*[4] SLIDER ***************************************************************************************** */
+#wrapSlider{
+}
+
+#slider{
+	position:relative;
+	display:block;
+	border-top:1px solid #0CF;
+}
+#wrapImgSlider{
+	width: 100%;
+}
+
+#wrapTxtSlider{
+	position:absolute;
+	z-index:1;
+	top:320px;
+	left:10px;
+}
+#wrapTxtSlider h2{
+	color:#FFF;
+	font-family: 'Josefin Sans', 'sans-serif';
+	font-size:3.5rem;
+	font-weight:300;
+}
+/*[5] CALL TO ACTION ***************************************************************************************** */
+#wrapCall{
+	text-align: center;
+	margin: 40px 0;
+}
+.tituloPrincipal{
+	font-family: 'Josefin Sans', 'sans-serif';
+	font-size:3.5rem;
+	font-weight:300;
+	color: #FFF;
+}
+.botonCall{
+	font-family: 'Josefin Sans', 'sans-serif';
+	font-size:1.4rem;
+	font-weight:300;
+	color: #FFF;
+	background:#10CCED;
+	padding: 10px 15px;
+	border-radius: 6px;
+	text-decoration: none;
+	margin-top: 20px;
+	display:inline-block;
+}
+.botonCall:hover{
+	background:#F90;
+}
+
+/*[6] ENTRADAS ***************************************************************************************** */
+
+
+.wrapEntradas{
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+
+.entrada{
+	flex:1;
+	margin:10px 6px;
+}
+
+
+.enlaceEntrada a{
+	width:100%;
+	padding:5px;
+	background:#10CCED;
+	color:#FFF;
+	text-decoration:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:1rem;
+	display:block;	
+}
+.enlaceEntrada a:hover{
+	background:#F90;	
+}
+/*[7] FOOTER ***************************************************************************************** */
+footer{
+	border-top:2px solid #000;
+	margin-top:10px;
+	text-align: center;
+}
+#wrapFooter{
+	border-top:1px solid #333;
+	padding: 20px 0;
+}
+#logoFooter{
+	width:120px;
+	margin:10px auto !important;
+}
+
+#wrapSocial{
+	width:130px;
+	margin:20px auto;
+	display: flex;
+	flex-flow: row nowrap;
+	align-content: space-between;
+}
+#wrapSocial li{
+	margin:0 0.66px;
+}
+
+
+
+
+
+/* ****************************************************** */
+/* ****************************************************** */
+@media screen and (max-width:850px) {
+	/*[4] SLIDER ***************************************************************************************** */
+	#wrapTxtSlider{
+		top:auto;
+		bottom: 20px;
+	}
+}
+
+
+@media screen and (max-width:700px) {
+	/*[3] MENU ***************************************************************************************** */
+	#icoMenu{
+		display: block;
+	}
+	.menu{
+		margin:10px 0 5px 0;
+		display: flex;
+		flex-flow: column;
+		/* oculto el menu */
+		display: none;
+	}
+	.btPrincipal{
+		display: block;
+		font-size:2rem;
+		color:#FFF;
+		padding:15px 10px;
+		border-radius: 0;
+		border-top: 1px solid #10CCED;
+		text-align: center;
+	}
+
+	/*[6] ENTRADAS ***************************************************************************************** */
+
+
+	.wrapEntradas{
+		display: flex;
+		flex-flow: column;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
