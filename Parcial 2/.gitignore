@@ -1,0 +1,23 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# Build artifacts
+**/target/
+**/bin/
+*.class
+
+# Archives/Backups (excluding zips to keep repository clean)
+*.zip
+
+# AI directories
+.antigravitycli/
+.claude/

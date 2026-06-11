@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Maqueta - Caja Registradora</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" defer>
+</head>
+<body class="p-4">
+
+  <div class="container">
+    <div class="row mb-4">
+      <!-- Ingreso de productos -->
+      <div class="col-md-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Ingrese el código de barras" maxlength="13" required>
+          <button class="btn btn-primary">Añadir</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Tabla de productos -->
+      <div class="col-md-6">
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Manteca
+                <div class="text-muted small">7790123456789</div>
+              </td>
+              <td>$2.50</td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Leche
+                <div class="text-muted small">7790987654321</div>
+              </td>
+              <td>$1.80</td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Coca Cola
+                <div class="text-muted small">7790000111122</div>
+              </td>
+              <td>$3.00</td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Pan
+                <div class="text-muted small">7790012345678</div>
+              </td>
+              <td>$1.20</td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot class="table-light">
+            <tr>
+              <th>Total</th>
+              <th>$8.50</th>
+			  <th></th>
+            </tr>
+          </tfoot>
+        </table>
+	</div>
+
+      <!-- Detalle del último producto -->
+      <div class="col-md-6">
+        <div class="border p-4 text-center h-100 d-flex flex-column justify-content-center">
+          <h1 class="display-3">$3.00</h1>
+          <div>
+            <p class="fs-5 mb-0 text-muted">Coca Cola</p>
+            <div class="text-muted small">7790000111122</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

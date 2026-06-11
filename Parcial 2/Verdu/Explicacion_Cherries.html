@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Estudio: Administración de Pedidos "Cherries"</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 0 20px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #1b5e20;
+            border-bottom: 2px solid #81c784;
+            padding-bottom: 10px;
+            font-size: 2.2em;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2e7d32;
+            border-bottom: 1px solid #c8e6c9;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 1.6em;
+        }
+        h3 {
+            color: #388e3c;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        p, li {
+            font-size: 1.05em;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f1f8e9;
+            color: #2e7d32;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+        pre {
+            background-color: #f9fbf7;
+            border: 1px solid #dcedc8;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #33691e;
+        }
+        .diagram {
+            background-color: #f9fbf7;
+            border: 1px solid #dcedc8;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .tip {
+            background-color: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .tip-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+        @media print {
+            body {
+                margin: 20px;
+                max-width: 100%;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            pre, blockquote {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Guía de Estudio y Explicación Técnica: "Cherries"</h1>
+    <p>Esta guía detalla la arquitectura, el flujo de datos y los conceptos técnicos de la administración de pedidos de la Verdulería "Cherries". Está diseñada para servir como material de estudio para tu examen parcial.</p>
+
+    <h2>1. Arquitectura General y Flujo de Información</h2>
+    <p>El proyecto implementa una arquitectura basada en <strong>MVC (Modelo-Vista-Controlador)</strong> desacoplada mediante <strong>AJAX (Asynchronous JavaScript and XML)</strong>. El intercambio de datos se realiza sin recargar la página completa, logrando una experiencia de usuario fluida y reactiva.</p>
+
+    <div class="diagram">
++------------------+                    +-----------------+                    +---------------------+
+|     Cliente      |                    |    Servidor     |                    |       Modelo        |
+|  (Navegador Web) |                    |  (JSP / JSTL)   |                    |    (JavaBeans)      |
++------------------+                    +-----------------+                    +---------------------+
+         |                                       |                                        |
+         |  1. Interacción (Click / Cambio)      |                                        |
+         |======================================>|                                        |
+         |  2. Petición AJAX (Fetch POST/GET)    |                                        |
+         |-------------------------------------->|                                        |
+         |                                       |  3. Invoca método de negocio           |
+         |                                       |--------------------------------------->|
+         |                                       |                                        |  4. Actualiza
+         |                                       |                                        |  estado
+         |                                       |                                        |  en memoria
+         |                                       |  5. Recupera objeto actualizado        |
+         |                                       |&lt;---------------------------------------|
+         |                                       |                                        |
+         |                                       |  6. Procesa pedido.jsp (JSTL/EL)       |
+         |                                       |--[Genera fragmento HTML]               |
+         |                                       |                                        |
+         |  7. Respuesta HTTP (Fragmento HTML)   |                                        |
+         |&lt;--------------------------------------|                                        |
+         |                                       |                                        |
+         |  8. Reemplaza (insertAdjacentHTML)   |                                        |
+         |===[Actualiza pantalla sin recargar]   |                                        |
+         |                                       |                                        |
+    </div>
+
+    <h3>El ciclo de vida de la petición:</h3>
+    <ul>
+        <li><strong>Acción del Usuario:</strong> El usuario interactúa con la grilla (por ejemplo, marca el checkbox de entrega o quita un producto).</li>
+        <li><strong>JavaScript (Controlador Cliente):</strong> 
+            <ul>
+                <li>El evento se propaga hasta el contenedor general (<code>#contenedorPedidos</code>) usando <strong>Delegación de Eventos</strong>.</li>
+                <li>JavaScript intercepta el evento, extrae las variables del DOM (como el ID del pedido y del producto) y realiza una petición HTTP asíncrona (<code>fetch</code>) a los JSPs de control (<code>check.jsp</code> o <code>quitar.jsp</code>).</li>
+            </ul>
+        </li>
+        <li><strong>Servidor JSP (Controlador Servidor):</strong>
+            <ul>
+                <li>El JSP recibe los parámetros y los traduce al tipo correspondiente de forma implícita.</li>
+                <li>Invoca el método lógico en el <strong>JavaBean</strong> (<code>PedidoManagerBean</code>) para actualizar el estado.</li>
+                <li>Se localiza el pedido modificado en la lista y se deposita en el <strong>Request Scope</strong> bajo el atributo <code>"pedido"</code>.</li>
+                <li>Se incluye dinámicamente el fragmento <code>pedido.jsp</code>.</li>
+            </ul>
+        </li>
+        <li><strong>JSTL y EL (Motor de Plantillas):</strong>
+            <ul>
+                <li><code>pedido.jsp</code> lee el pedido del Request Scope y genera el código HTML correspondiente a esa tarjeta utilizando expresiones lógicas para calcular badges de estado, clases tachadas y visibilidad de botones.</li>
+                <li>El JSP de control devuelve el HTML resultante al navegador.</li>
+            </ul>
+        </li>
+        <li><strong>DOM (Actualización Visual):</strong>
+            <ul>
+                <li>JavaScript recibe el HTML en la respuesta del <code>fetch</code>.</li>
+                <li>Busca la tarjeta afectada, inserta el nuevo HTML antes de ella usando <code>.insertAdjacentHTML('beforebegin', html)</code> y elimina la tarjeta vieja con <code>.remove()</code> (alternativa estándar y recomendada sobre <code>.outerHTML</code>).</li>
+                <li>Si ocurre un error, el bloque <code>catch</code> revierte el estado visual del control (ej: desmarcar el checkbox si falló) y notifica al usuario en la cabecera.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>2. El Lado del Cliente (El Navegador - JavaScript)</h2>
+    <p>El archivo <code>verdu.js</code> actúa como el controlador del lado del cliente. Su responsabilidad es capturar interacciones, comunicarse asíncronamente y actualizar el DOM de forma quirúrgica.</p>
+
+    <h3>A. Delegación de Eventos (Event Delegation)</h3>
+    <p>En lugar de asociar un escuchador de eventos a cada checkbox y botón de la página, asociamos los eventos directamente a un ancestro común estable que nunca se destruye: el contenedor con ID <code>contenedorPedidos</code>. Esto permite que, si reemplazamos una tarjeta con nuevo HTML mediante AJAX, los nuevos elementos sigan teniendo comportamiento sin volver a configurar JavaScript.</p>
+    <pre><code>document.getElementById('contenedorPedidos').addEventListener('change', async function (event) { ... });
+document.getElementById('contenedorPedidos').addEventListener('click', async function (event) { ... });</code></pre>
+    <ul>
+        <li><code>event.target</code>: Es el elemento HTML exacto donde ocurrió la acción (por ejemplo, el botón clickeado).</li>
+        <li><code>event.target.closest('.card')</code>: Busca hacia arriba en el árbol DOM hasta encontrar el contenedor de la tarjeta del pedido actual.</li>
+    </ul>
+
+    <h3>B. Estructura de la Petición AJAX (Fetch API)</h3>
+    <p>Para comunicarnos con los archivos JSP, se utiliza la función moderna <code>fetch</code>.</p>
+    <ul>
+        <li><strong>Content-Type (<code>application/x-www-form-urlencoded</code>):</strong> Le indica al servidor que los datos viajan codificados en formato de parámetros de formulario estándar (<code>clave1=valor1&clave2=valor2</code>), lo que facilita su lectura en Java usando <code>request.getParameter()</code>.</li>
+        <li><strong>Body (Cuerpo):</strong> Construimos la cadena dinámicamente usando plantillas de texto (Template Literals):
+            <pre><code>body: `id=${id}&checked=${checked}&expand=${isExpanded}`</code></pre>
+        </li>
+    </ul>
+
+    <h3>C. Reemplazo del DOM y Rollback</h3>
+    <ul>
+        <li><code>card.insertAdjacentHTML('beforebegin', html)</code> y <code>card.remove()</code>: Reemplaza el elemento DOM completo (la tarjeta del pedido) insertando el nuevo HTML como hermano previo y eliminando el nodo anterior. Esto logra el reemplazo de forma segura y compatible.</li>
+        <li><strong>Rollback:</strong> Si la petición falla, se ejecuta la sección <code>catch</code>, donde se restaura el checkbox a su valor lógico opuesto (<code>target.checked = !checked</code>) y se muestra el error.</li>
+    </ul>
+
+    <h2>3. El Lado del Servidor (JSP, JSTL y EL)</h2>
+    <p>El servidor procesa la lógica de presentación utilizando <strong>JSTL (JavaServer Pages Standard Tag Library)</strong> y <strong>EL (Expression Language)</strong>, evitando estrictamente el uso de Scriptlets (<code>&lt;% ... %&gt;</code>).</p>
+
+    <h3>A. Comunicación entre JSPs mediante el Request Scope</h3>
+    <p>El JSP incluido (<code>pedido.jsp</code>) requiere del objeto <code>PedidoBean</code> para renderizar el HTML.</p>
+    <ul>
+        <li><strong>El Problema:</strong> La etiqueta <code>&lt;jsp:param&gt;</code> solo puede transmitir cadenas de texto (Strings). Si intentamos pasar una lista de productos (<code>ped.productos</code>), JSP la convertirá a texto plano, destruyendo el objeto de tipo colección y rompiendo el bucle.</li>
+        <li><strong>La Solución:</strong> Guardar el objeto en el ámbito de la petición (<strong>Request Scope</strong>) usando JSTL:
+            <pre><code>&lt;c:set var="pedido" value="${ped}" scope="request"/&gt;
+&lt;jsp:include page="pedido.jsp"/&gt;</code></pre>
+            Dado que el JSP incluido se ejecuta bajo el mismo flujo de petición HTTP, puede acceder al objeto original escribiendo <code>${pedido}</code> en Expression Language conservando sus tipos de datos y colecciones Java.</li>
+    </ul>
+
+    <h3>B. Invocación de Métodos de JavaBean usando EL 3.0+</h3>
+    <p>En versiones modernas de Expression Language, es posible invocar métodos que reciben argumentos directamente desde una expresión:</p>
+    <pre><code>${listado.marcarEntrega(param.id, param.checked)}
+${listado.quitarProducto(param.pedidoId, param.productoId)}</code></pre>
+    <ul>
+        <li><strong>Coerción Automática:</strong> EL convierte automáticamente el String <code>param.id</code> en <code>int</code> y el String <code>param.checked</code> en <code>boolean</code> para que coincidan con la firma del método en la clase Java.</li>
+        <li><strong>Flujo de Excepciones:</strong> Si el método lanza una excepción, el JSP fallará devolviendo un código HTTP 500, permitiendo que el JavaScript del navegador intercepte el error y dispare el rollback del checkbox.</li>
+    </ul>
+
+    <h3>C. Operadores Lógicos y Estructuras en JSTL</h3>
+    <ul>
+        <li><strong>Control del Límite de Productos (5 inicialmente):</strong>
+            <pre><code>&lt;c:set var="limite" value="${param.expand == 'true' ? 1000 : 4}"/&gt;
+&lt;c:forEach var="prod" items="${pedido.productos}" end="${limite}"&gt;</code></pre>
+            Establece la propiedad <code>end</code> del bucle en 1000 (para mostrar todos) si el parámetro <code>expand</code> es <code>true</code>, o en 4 (para mostrar los primeros 5 elementos, del 0 al 4) si es falso.
+        </li>
+        <li><strong>Clases Condicionales con EL:</strong>
+            <pre><code>&lt;tr class="${prod.rechazado ? 'text-danger text-decoration-line-through' : ''}"&gt;</code></pre>
+            Tacha y pinta de rojo la fila del producto si se encuentra rechazado.
+        </li>
+        <li><strong>Estructura Condicional <code>&lt;c:choose&gt;</code> para badges de entrega:</strong>
+            <pre><code>&lt;c:if test="${pedido.listoEntrega}"&gt;
+  &lt;c:choose&gt;
+    &lt;c:when test="${pedido.completo}"&gt;
+      &lt;span class="badge bg-success"&gt;Completo para entrega&lt;/span&gt;
+    &lt;/c:when&gt;
+    &lt;c:otherwise&gt;
+      &lt;span class="badge bg-warning text-dark"&gt;Parcialmente completo para entrega&lt;/span&gt;
+    &lt;/c:otherwise&gt;
+  &lt;/c:choose&gt;
+&lt;/c:if&gt;</code></pre>
+        </li>
+        <li><strong>Ocultamiento Condicional del Botón Quitar:</strong>
+            <pre><code>class="... btn-quitar ${(prod.rechazado || pedido.listoEntrega) ? 'd-none' : ''}"</code></pre>
+            Agrega la clase <code>d-none</code> (ocultar) al botón "Quitar" si el producto ya está rechazado o si el pedido entero ya está marcado como listo para entregar.
+        </li>
+        <li><strong>Visibilidad del Botón "Ver más":</strong>
+            <pre><code>&lt;c:if test="${pedido.cantidadProductos > 5 && param.expand != 'true'}"&gt;</code></pre>
+            Solo muestra el botón para expandir si el pedido contiene más de 5 productos y si no está actualmente expandido.
+        </li>
+    </ul>
+
+    <h2>4. Persistencia ante Recarga (F5)</h2>
+    <ul>
+        <li><strong>Persistencia:</strong> Las peticiones AJAX a <code>check.jsp</code> y <code>quitar.jsp</code> llaman a los métodos del JavaBean <code>PedidoManagerBean</code>, modificando el estado de los objetos Java en el servidor (que se encuentran guardados en el ámbito <code>application</code>).</li>
+        <li><strong>Visualización de 5 productos en F5:</strong> Al presionar F5, el navegador realiza una petición GET clásica sobre <code>index.jsp</code>. Como no se le está enviando ningún parámetro <code>expand=true</code>, el valor del límite se evalúa de manera predeterminada en 4, colapsando la vista automáticamente a los primeros 5 productos.</li>
+    </ul>
+
+    <div class="tip">
+        <div class="tip-title">Recomendación para el examen parcial</div>
+        Recordá siempre que el uso de Scriptlets está penalizado en el criterio de aprobación. Toda estructura repetitiva o condicional debe resolverse utilizando etiquetas de JSTL. El pasaje de colecciones debe hacerse siempre a través del Request Scope (usando <code>c:set</code>) para evitar que se serialicen como String en los parámetros del include.
+    </div>
+
+</body>
+</html>

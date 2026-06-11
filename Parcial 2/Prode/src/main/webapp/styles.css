@@ -1,0 +1,19 @@
+body {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 10pt;
+}
+.table {
+    background-color: #FFF;
+    border: 1px solid #000;
+    width: 400px;
+}
+.table thead th {
+    background-color: #C0C0C0;
+    text-align: left;
+}
+.form-control {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 10pt;
+    border: 1px solid #000;
+    border-radius: 0;
+}
