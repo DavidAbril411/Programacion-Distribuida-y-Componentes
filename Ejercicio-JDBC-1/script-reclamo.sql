@@ -11,12 +11,12 @@ create table dbo.vehiculos
  nro_chasis		varchar(17)		not null
 				constraint PK__vehiculos__END primary key,
  modelo			varchar(100)	not null,
- año			smallint		not null,
+ ano			smallint		not null,
  dominio		varchar(10)		null
 );
 go
 
-insert into dbo.vehiculos(nro_chasis, modelo, año, dominio)
+insert into dbo.vehiculos(nro_chasis, modelo, ano, dominio)
 values('8F8693A675F14DE9A', 'MODELO-1', 2013, 'MDA277'),
       ('2BAF33F1B52247509', 'MODELO-1', 2014, 'NDA635'),
       ('8FCCF9F24D0F4AE7B', 'MODELO-2', 2015, 'OKI712'),

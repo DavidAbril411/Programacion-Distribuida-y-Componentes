@@ -18,7 +18,7 @@ go
 
 create table dbo.tickets
 (
- año_ticket				smallint		not null,
+ ano_ticket				smallint		not null,
  nro_ticket				smallint		not null,
  fecha_ticket			smalldatetime	not null
 						constraint DF__tickets__fecha_ticket__current_timestamp__END default current_timestamp,
@@ -27,7 +27,7 @@ create table dbo.tickets
  nro_solicitante		integer			not null
 						constraint FK__tickets__solicitantes__END references dbo.solicitantes,
  constraint PK__tickets__END
-            primary key (año_ticket, nro_ticket)
+            primary key (ano_ticket, nro_ticket)
 )
 go
 
@@ -37,7 +37,7 @@ values(1, 'SOLICITANTE 1', 'solicitante1@ubp.edu.ar'),
 	  (3, 'SOLICITANTE 3', 'solicitante3@ubp.edu.ar')
 go
 
-insert into dbo.tickets(año_ticket, nro_ticket, fecha_ticket, asunto_ticket, texto_ticket, nro_solicitante)
+insert into dbo.tickets(ano_ticket, nro_ticket, fecha_ticket, asunto_ticket, texto_ticket, nro_solicitante)
 values(2024, 1, '2024-02-08 17:12', 'ASUNTO 1', 'TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1 TEXTO 1', 1),
       (2024, 2, '2024-03-07 16:00', 'ASUNTO 2', 'TEXTO 2 TEXTO 2 TEXTO 2 TEXTO 2 TEXTO 2 TEXTO 2 TEXTO 2 TEXTO 2 TEXTO 2 TEXTO 2', 2),
 	  (2024, 3, '2024-05-16 10:30', 'ASUNTO 3', 'TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3 TEXTO 3', 3),
@@ -48,7 +48,7 @@ go
 declare @string_busqueda	varchar(255),
         @ordenar_por		char(1)		= 'F'
 
-select ticket        = convert(varchar(4), t.año_ticket) + '-' + replicate('0', 5 - len(convert(varchar(5), t.nro_ticket))) + convert(varchar(5), t.nro_ticket),
+select ticket        = convert(varchar(4), t.ano_ticket) + '-' + replicate('0', 5 - len(convert(varchar(5), t.nro_ticket))) + convert(varchar(5), t.nro_ticket),
        fecha_ticket  = convert(varchar(10), t.fecha_ticket, 103) + ' ' + convert(varchar(5), t.fecha_ticket, 108), 
 	   solicitante   = s.nom_solicitante,
 	   asunto_ticket = t.asunto_ticket,
@@ -65,7 +65,7 @@ select ticket        = convert(varchar(4), t.año_ticket) + '-' + replicate('0', 
 			   when 'S'
 			   then s.nom_solicitante
 			   when 'T'
-			   then convert(varchar(4), t.año_ticket) + '-' + replicate('0', 5 - len(convert(varchar(5), t.nro_ticket))) + convert(varchar(5), t.nro_ticket)
+			   then convert(varchar(4), t.ano_ticket) + '-' + replicate('0', 5 - len(convert(varchar(5), t.nro_ticket))) + convert(varchar(5), t.nro_ticket)
 		 end
 go
 
@@ -81,7 +81,7 @@ begin
 
   set nocount on
   
-  declare @año_ticket		smallint,
+  declare @ano_ticket		smallint,
           @nro_ticket		smallint,
 		  @nro_solicitante	integer
 
@@ -133,13 +133,13 @@ begin
 	   values(@nro_solicitante, @nom_solicitante, @e_mail_solicitante)
      end
 
-  select @año_ticket = year(getdate()),
+  select @ano_ticket = year(getdate()),
          @nro_ticket = isnull(max(nro_ticket), 0) + 1
     from dbo.tickets (tablockx)
-   where año_ticket = year(getdate())
+   where ano_ticket = year(getdate())
 
-  insert into dbo.tickets(año_ticket, nro_ticket, asunto_ticket, texto_ticket, nro_solicitante)
-  values(@año_ticket, @nro_ticket, @asunto_ticket, @texto_ticket, @nro_solicitante)
+  insert into dbo.tickets(ano_ticket, nro_ticket, asunto_ticket, texto_ticket, nro_solicitante)
+  values(@ano_ticket, @nro_ticket, @asunto_ticket, @texto_ticket, @nro_solicitante)
 
   set nocount off
 
